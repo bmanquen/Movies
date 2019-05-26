@@ -1,0 +1,38 @@
+﻿@{
+    /**/
+
+    Layout = "_Layout.cshtml";
+    var db = Database.Open("MovieRental");
+
+    var email = Request.Form["email"];
+    var password = Request.Form["password"];
+    var count = 0;
+
+    var usersQuery = "SELECT * FROM UserInfo WHERE Email = @0";
+    var user = db.QuerySingle(usersQuery, email);
+}
+@foreach (var users in db.Query(usersQuery, email))
+{
+    count++;
+}
+@if (count == 1)
+{
+    if (user.Password == password)
+    {
+        <div class="alert alert-success" role="alert">
+            <strong>Login Successful.</strong>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-danger" role="alert">
+            <strong>Login Failed, Try Again.</strong>
+        </div>
+    }
+}
+@if (count == 0)
+{
+    <div class="alert alert-danger" role="alert">
+        <strong>User does not exist, please sign up.</strong>
+    </div>
+}

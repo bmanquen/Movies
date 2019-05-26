@@ -1,0 +1,26 @@
+﻿@{
+    Layout = "_Layout.cshtml";
+    var db = Database.Open("MovieRental");
+    
+    var moviesQuery = "SELECT * FROM Movies";
+    var movieIds = "";
+}
+    @*<form action="Checkout">
+        <button type="submit">Checkout</button>
+        <input type="submit" style="background-color:turquoise;color:#343a40;font:30px bold ariel,verdana; border:3px solid red" class="btn btn-lg btn-primary btn-block" value="Check Out">
+    </form>*@
+@foreach(var movie in db.Query(moviesQuery))
+{
+    <div class="form-check movies" style="border:3px solid #14716c">
+        <form action="ConfirmMovieAdded">
+            <button name="movieID" type="submit" style="position: relative; top:6%;" value="@movie.MovieID">Add To Cart</button>
+            <img src="@movie.Image" />
+            &nbsp;&nbsp;&nbsp;&nbsp;<strong>@movie.Title</strong>
+            &nbsp;&nbsp;&nbsp;&nbsp;@movie.Genre
+            &nbsp;&nbsp;&nbsp;&nbsp;@movie.Year
+            &nbsp;&nbsp;&nbsp;&nbsp;@movie.Rating
+        </form>
+
+        
+    </div>
+}

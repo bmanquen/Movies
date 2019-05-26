@@ -1,0 +1,25 @@
+﻿@{
+    Layout = "_Layout.cshtml";
+    var db = Database.Open("MovieRental");
+
+    var movieQuery = "SELECT * FROM Movies WHERE MovieID = @0";
+    var checkoutQuery = "SELECT * FROM Checkout";  
+}
+@foreach (var movies in db.Query(checkoutQuery))
+{
+    var movie = db.QuerySingle(movieQuery, movies.MovieID);
+    <div class="form-check movies" style="border:3px solid #14716c">
+        <form action="ConfirmRemove">
+            <img src="@movie.Image" />
+            @movie.Title
+            @movie.Genre
+            @movie.Year
+            @movie.Rating
+            <button name="movieID" type="submit" style="position: relative; top:10%; float:right;" value="@movie.MovieID">Remove</button>
+        </form>
+    </div>
+}
+<form action="ConfirmCheckout">
+    <input type="submit" style="background-color:#343a40;color:white; border:3px solid orangered" class="btn btn-lg btn-primary btn-block" value="Check Out">
+</form>
+

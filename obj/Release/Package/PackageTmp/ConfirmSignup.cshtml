@@ -1,0 +1,14 @@
+@{
+    Layout = "_Layout.cshtml";
+    var db = Database.Open("MovieRental");
+
+    var firstName = Request.Form["first_name"];
+    var lastName = Request.Form["last_name"];
+    var email = Request.Form["email"];
+    var password = Request.Form["password"];
+    
+    var addUser = "INSERT INTO User ()"
+}
+<div class="alert alert-success" role="alert">
+    <strong>Signup Complete.</strong>
+</div>

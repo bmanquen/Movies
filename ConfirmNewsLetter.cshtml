@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "_Layout.cshtml";
+    var db = Database.Open("MovieRental");
+
+    var email = Request.Form["email"];
+    var count = 0;
+
+    var newsletterUsers = "SELECT * FROM NewsLetters WHERE Email = @0";
+
+    var addNewsletterUser = "INSERT INTO NewsLetters (Email) VALUES (@0)";
+}
+@foreach (var user in db.Query(newsletterUsers, email))
+{
+    count++;
+}
+@{ if (count == 0)
+    {
+        db.Execute(addNewsletterUser, email);
+        <div class="alert alert-success" role="alert">
+            <strong>You have successfully signed up for the newsletter!</strong>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-danger" role="alert">
+            <strong>That email is already registered with the newsletter, please signup with a different email.</strong>
+        </div>
+    }
+}

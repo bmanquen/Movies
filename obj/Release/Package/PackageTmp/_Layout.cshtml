@@ -1,0 +1,83 @@
+﻿@{
+    string homeLinkClass = "";
+    string newsLetterLinkClass = "";
+    string contactUsLinkClass = "";
+    string checkoutLinkClass = "";
+    string signinLinkClass = "";
+    string signupLinkClass = "";
+    switch (Request.Url.AbsolutePath)
+    {
+        case "/Home":
+            homeLinkClass = "active";
+            break;
+        case "/NewsLetter":
+            newsLetterLinkClass = "active";
+            break;
+        case "/Contact Us":
+            contactUsLinkClass = "active";
+            break;
+        case "/Checkout":
+            checkoutLinkClass = "active";
+            break;
+        case "/Signin":
+            signinLinkClass = "active";
+            break;
+        case "/Signup":
+            signupLinkClass = "active";
+            break;
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@Page.Title</title>
+    <link rel="stylesheet" href=@Href("~/Content/bootstrap.css") />
+    <link rel="stylesheet" href=@Href("~/Shared/main.css") />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-expand-lg static-top navbar-dark bg-dark" style="border:3px solid turquoise;">
+        <div class="container-fluid">
+            @*<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>*@
+            @*<div class="collapse navbar-collapse" id="navbarResponsive">*@
+
+            
+            <a href="home.cshtml" class="pull-left" style="color:turquoise;font: 37px arial,verdana;">EZ Movies<img src="https://img.icons8.com/doodle/96/000000/clapperboard.png"></a>
+          
+            <ul class="nav navbar-nav" style="font:19px arial,verdana;" >
+              
+                <li class="nav-item @homeLinkClass" style="border:3px thin turquoise">
+                    <a class="nav-link" href="Home">Movie List</a>
+                </li>
+                <li class="nav-item @newsLetterLinkClass" style="border:3px thin turquoise">
+                    <a class="nav-link" href="NewsLetter">News Letter</a>
+                </li>
+                <li class="nav-item @contactUsLinkClass" style="border:3px thin turquoise">
+                    <a class="nav-link" href="ContactUs">Contact Us</a>
+                </li>
+                <li class="nav-item @checkoutLinkClass" style="border:3px thin turquoise">
+                    <a class="nav-link" href="Checkout">Checkout</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" style="font:19px arial,verdana;">
+                <li class="nav-item @signupLinkClass"><a class="nav-link" href="Signup"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Sign Up</a></li>
+                <li class="nav-item @signinLinkClass"><a class="nav-link" href="Signin"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>Login</a></li>
+            </ul>
+            @*</div>*@
+        </div>
+    </nav>
+    <br />
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    <script src=@Href("~/Scripts/jquery-3.0.0.min.js")></script>
+    <script src=@Href("~/Scripts/bootstrap.min.js")></script>
+    <script src=@Href("~/Shared/main.js")></script>
+</body>
+</html>
+ @*https://cdn4.iconfinder.com/data/icons/socialmediaicons_v120/48/youtube.png*@ 

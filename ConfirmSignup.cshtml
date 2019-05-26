@@ -1,0 +1,32 @@
+@{
+    Layout = "_Layout.cshtml";
+    var db = Database.Open("MovieRental");
+
+    var firstName = Request.Form["first_name"];
+    var lastName = Request.Form["last_name"];
+    var email = Request.Form["email"];
+    var password = Request.Form["password"];
+    var count = 0;
+
+    var users = "SELECT * FROM UserInfo WHERE Email = @0";
+
+    var addUser = "INSERT INTO UserInfo (Password, FirstName, LastName, Email) VALUES (@0, @1, @2, @3)";
+   
+}
+@foreach (var user in db.Query(users, email))
+{
+    count++;
+}
+@if (count > 0)
+{
+    <div class="alert alert-danger" role="alert">
+        <strong>Email is already in use, create an account with another email.</strong>
+    </div>
+}
+@if (count == 0)
+{
+     db.Execute(addUser, password, firstName, lastName, email);
+    <div class="alert alert-success" role="alert">
+        <strong>Signup Complete.</strong>
+    </div>
+}

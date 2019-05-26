@@ -1,0 +1,11 @@
+﻿@{
+    Layout = "_Layout.cshtml";
+    var db = Database.Open("MovieRental");
+    var movieId = Request.QueryString["movieID"];
+
+    var addMovie = "INSERT INTO Checkout (MovieID) VALUES (@0)";
+    db.Execute(addMovie, movieId);
+}
+<div class="alert alert-success" role="alert">
+    <strong>You have successfully added a movie to your cart!</strong>
+</div>

@@ -1,0 +1,78 @@
+﻿@*using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web;
+
+    namespace test
+    {
+        public class Signup
+        {
+        }
+    }*@
+
+@{
+    Layout = "_Layout.cshtml";
+}
+
+
+<style>
+    .colorgraph {
+        height: 5px;
+        border-top: 0;
+        background: #40e0d0;
+        border-radius: 5px;
+        background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+        background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+        background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+        background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+    }
+</style>
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+
+<div class="container" >
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+            <form role="form" style="border:4px solid #14716c; background-color:#343a40;color:orangered;font: 50px arial,verdana;" action="ConfirmSignup" method="post">
+               <center>Sign Up</center>
+                <hr class="colorgraph">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="First Name" tabindex="1">
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="last_name" id="last_name" class="form-control input-lg" placeholder="Last Name" tabindex="2">
+                        </div>
+                    </div>
+                </div>
+             
+                <div class="form-group">
+                    <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" tabindex="4">
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-lg-12 col-lg-12">
+                        <div class="form-group">
+                            <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="5">
+                        </div>
+                    </div>
+              
+                </div>
+
+
+                <hr class="colorgraph">
+                <div class="row">
+                    <div class=col-lg-12 col-lg-12"><input type="submit"style="background-color:turquoise;color:orangered;font:30px bold arial,verdana; border:3px solid orangered;" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
+                   
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

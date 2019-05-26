@@ -1,0 +1,130 @@
+﻿@*using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web;
+
+    namespace test
+    {
+        public class Feedback
+        {
+        }
+    }*@
+
+
+<header>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</header>
+@{
+    Layout = "_Layout.cshtml";
+}
+
+
+<style>
+    .jumbotron {
+        background: #343a40;
+        color: turquoise;
+        border-radius: 0px;
+    }
+
+    .jumbotron-sm {
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }
+
+    .jumbotron small {
+        color: white;
+    }
+
+    .h1 small {
+        font-size: 24px;
+    }
+</style>
+
+
+<div class="jumbotron jumbotron-sm">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-lg-12">
+            <h1 class="h1">
+                Questions? <small>Feel free to contact us</small>
+            </h1>
+        </div>
+    </div>
+</div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="well well-sm" style="background-color:turquoise; border:3px solid #14716c">
+                <form action="ConfirmContactUs" method="post">
+                    <div class="row"style="background-color:darkslategray; color:white">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="name">
+                                    Name
+                                </label>
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Enter name" required="required" />
+                            </div>
+                            <div class="form-group">
+                                <label for="email">
+                                    Email Address
+                                </label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-envelope"></span>
+                                    </span>
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter email" required="required" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">
+                                    Subject
+                                </label>
+                                <select id="subject" name="subject" class="form-control">
+                                    <option value="na" selected="">Choose One:</option>
+                                    <option value="service">General Customer Service</option>
+                                    <option value="suggestions">Suggestions</option>
+                                    <option value="product">Product Support</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="name">
+                                    Message
+                                </label>
+                                <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
+                                          placeholder="Message"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <button type="submit" style="background-color:#343a40;color:white;border:3px solid orangered "class="btn btn-primary pull-right" id="btnContactUs">
+                                Send Message
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <form>
+                <legend><span class="glyphicon glyphicon-globe"></span> Our office</legend>
+                <address>
+                    <strong>EZ Movies</strong><br>
+                    795 Folsom Ave, Suite 600<br>
+                    Norman, OK 73072<br>
+                    <abbr title="Phone">
+                        P:
+                    </abbr>
+                    (405) 456-7890
+                </address>
+                <address>
+                    <strong>Full Name</strong><br>
+                    <a href="#">first.last@example.com</a>
+                </address>
+            </form>
+        </div>
+    </div>
+</div>

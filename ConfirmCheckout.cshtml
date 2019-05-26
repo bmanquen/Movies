@@ -1,0 +1,17 @@
+﻿@{
+    Layout = "_Layout.cshtml";
+    var db = Database.Open("MovieRental");
+
+    var checkoutQuery = "SELECT * FROM Checkout";
+    var removeMovie = "DELETE FROM Checkout WHERE CheckoutID = @0";
+
+    foreach(var movie in db.Query(checkoutQuery))
+    {
+        db.Execute(removeMovie, movie.CheckoutID);
+    }
+    
+    
+}
+<div class="alert alert-success" role="alert">
+    <strong>You have successfully checked out!</strong>
+</div>

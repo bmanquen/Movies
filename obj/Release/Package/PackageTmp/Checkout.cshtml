@@ -1,0 +1,16 @@
+﻿@{
+    Layout = "_Layout.cshtml";
+    var db = Database.Open("MovieRental");
+    var movieIds = Request.Form["movie"];
+    
+    var moviesQuery = "SELECT * FROM Movies WHERE MovieID IN (@0)";
+}
+@foreach(var movie in db.Query(moviesQuery. movieIds)){
+    <div>
+        <img src="@movie.Image"/>
+        @movie.Title
+        @movie.Genre
+        @movie.Year
+        @movie.Rating
+    </div>
+}

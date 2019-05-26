@@ -1,0 +1,11 @@
+﻿@{
+    Layout = "_Layout.cshtml";
+    var db = Database.Open("MovieRental");
+    var movieId = Request.QueryString["movieID"];
+
+    var removeMovie = "DELETE FROM Checkout WHERE MovieID = @0";
+    db.Execute(removeMovie, movieId);
+}
+<div class="alert alert-success" role="alert">
+    <strong>You have successfully removed a movie from your cart!</strong>
+</div>

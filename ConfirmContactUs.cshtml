@@ -1,0 +1,15 @@
+﻿@{
+    Layout = "_Layout.cshtml";
+    var db = Database.Open("MovieRental");
+
+    var email = Request.Form["email"];
+    var name = Request.Form["name"];
+    var message = Request.Form["message"];
+    var subject = Request.Form["subject"];
+
+    var addContact = "INSERT INTO ContactUs (Name, Email, Message, Subject) VALUES (@0, @1, @2, @3)";
+    db.Execute(addContact, name, email, message, subject);
+}
+<div class="alert alert-success" role="alert">
+    <strong>Your request has been sent!</strong>
+</div>
